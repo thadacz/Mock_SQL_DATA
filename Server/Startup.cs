@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -6,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using Mock_SQL_DATA.Server.Data;
 
 namespace Mock_SQL_DATA.Server
 {
@@ -25,6 +28,10 @@ namespace Mock_SQL_DATA.Server
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddDbContext<SqlGeneratorContext>(options =>
+            {
+                options.UseMySql(Configuration.GetConnectionString("MySqlDbConnString"), new MySqlServerVersion(new Version(8, 0, 25)));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

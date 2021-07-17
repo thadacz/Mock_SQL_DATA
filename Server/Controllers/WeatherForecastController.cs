@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Mock_SQL_DATA.Shared;
+using Mock_SQL_GENERATOR.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Mock_SQL_DATA.Server.Controllers
+namespace Mock_SQL_GENERATOR.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
